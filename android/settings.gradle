@@ -1,0 +1,5 @@
+rootProject.name = 'ARDemo'
+include ':react-native-bose-ar-manager'
+project(':react-native-bose-ar-manager').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-bose-ar-manager/android')
+
+include ':app'
