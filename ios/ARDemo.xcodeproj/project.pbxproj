@@ -37,18 +37,20 @@
 		2DCD954D1E0B4F2C00145EB5 /* ARDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ARDemoTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		86374C9F226F61BB001CAA1F /* BLECore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374C9E226F61BB001CAA1F /* BLECore.framework */; };
+		86374CA2226F61CA001CAA1F /* BoseWearable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA0226F61CA001CAA1F /* BoseWearable.framework */; };
+		86374CA3226F61CA001CAA1F /* Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA1226F61CA001CAA1F /* Logging.framework */; };
+		86374CA4226F61DD001CAA1F /* BoseWearable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA0226F61CA001CAA1F /* BoseWearable.framework */; };
+		86374CA5226F61DD001CAA1F /* BoseWearable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA0226F61CA001CAA1F /* BoseWearable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86374CA6226F61DD001CAA1F /* Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA1226F61CA001CAA1F /* Logging.framework */; };
+		86374CA7226F61DD001CAA1F /* Logging.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA1226F61CA001CAA1F /* Logging.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86374CA8226F61DD001CAA1F /* BLECore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374C9E226F61BB001CAA1F /* BLECore.framework */; };
+		86374CA9226F61DD001CAA1F /* BLECore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86374C9E226F61BB001CAA1F /* BLECore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86ED36892268FC77007A794B /* empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ED36882268FC77007A794B /* empty.swift */; };
 		86ED36CA226952AF007A794B /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
-		86ED37292269D0A6007A794B /* BoseWearable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86ED37262269D0A6007A794B /* BoseWearable.framework */; };
-		86ED372A2269D0A6007A794B /* Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86ED37272269D0A6007A794B /* Logging.framework */; };
-		86ED37452269D362007A794B /* BLECore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86ED36FF2269D0A6007A794B /* BLECore.framework */; };
-		86ED37462269D362007A794B /* BLECore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86ED36FF2269D0A6007A794B /* BLECore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		86ED37482269D362007A794B /* BoseWearable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86ED37262269D0A6007A794B /* BoseWearable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		86ED374A2269D362007A794B /* Logging.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86ED37272269D0A6007A794B /* Logging.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		99717AD1FCCE4F1F9D5B1370 /* libRNBoseArManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DA512FEE93404C8ECB506D /* libRNBoseArManager.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
-		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,15 +337,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		86ED37712269D362007A794B /* Embed Frameworks */ = {
+		86374C94226F6077001CAA1F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				86ED37482269D362007A794B /* BoseWearable.framework in Embed Frameworks */,
-				86ED37462269D362007A794B /* BLECore.framework in Embed Frameworks */,
-				86ED374A2269D362007A794B /* Logging.framework in Embed Frameworks */,
+				86374CA9226F61DD001CAA1F /* BLECore.framework in Embed Frameworks */,
+				86374CA7226F61DD001CAA1F /* Logging.framework in Embed Frameworks */,
+				86374CA5226F61DD001CAA1F /* BoseWearable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,14 +380,13 @@
 		74F068A05D1D4AE1BF379B0C /* RNBoseArManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNBoseArManager.xcodeproj; path = "../node_modules/react-native-bose-ar-manager/ios/RNBoseArManager.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		86374C9E226F61BB001CAA1F /* BLECore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BLECore.framework; sourceTree = "<group>"; };
+		86374CA0226F61CA001CAA1F /* BoseWearable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BoseWearable.framework; sourceTree = "<group>"; };
+		86374CA1226F61CA001CAA1F /* Logging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Logging.framework; sourceTree = "<group>"; };
 		86ED36872268FC76007A794B /* ARDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		86ED36882268FC77007A794B /* empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = empty.swift; sourceTree = "<group>"; };
-		86ED36FF2269D0A6007A794B /* BLECore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BLECore.framework; sourceTree = "<group>"; };
-		86ED37262269D0A6007A794B /* BoseWearable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BoseWearable.framework; sourceTree = "<group>"; };
-		86ED37272269D0A6007A794B /* Logging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Logging.framework; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,18 +402,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86ED37292269D0A6007A794B /* BoseWearable.framework in Frameworks */,
+				86374CA4226F61DD001CAA1F /* BoseWearable.framework in Frameworks */,
+				86374CA2226F61CA001CAA1F /* BoseWearable.framework in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
+				86374CA6226F61DD001CAA1F /* Logging.framework in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
-				86ED372A2269D0A6007A794B /* Logging.framework in Frameworks */,
-				86ED37452269D362007A794B /* BLECore.framework in Frameworks */,
+				86374CA3226F61CA001CAA1F /* Logging.framework in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
+				86374CA8226F61DD001CAA1F /* BLECore.framework in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
+				86374C9F226F61BB001CAA1F /* BLECore.framework in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				86ED36CA226952AF007A794B /* libReact.a in Frameworks */,
@@ -426,7 +430,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */,
 				2D02E4C21E0B4AEC006451C7 /* libRCTAnimation.a in Frameworks */,
 				2D02E4C31E0B4AEC006451C7 /* libRCTImage-tvOS.a in Frameworks */,
@@ -570,11 +573,10 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				86ED36FF2269D0A6007A794B /* BLECore.framework */,
-				86ED37262269D0A6007A794B /* BoseWearable.framework */,
-				86ED37272269D0A6007A794B /* Logging.framework */,
+				86374CA0226F61CA001CAA1F /* BoseWearable.framework */,
+				86374CA1226F61CA001CAA1F /* Logging.framework */,
+				86374C9E226F61BB001CAA1F /* BLECore.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 			);
 			name = Frameworks;
@@ -707,7 +709,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				86ED37712269D362007A794B /* Embed Frameworks */,
+				86374C94226F6077001CAA1F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1327,6 +1329,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Libraries/BoseWearable",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1358,6 +1361,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Libraries/BoseWearable",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
