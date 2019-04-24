@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import { Text, View, NativeModules, Button, ul } from 'react-native';
+import { 
+  Text, 
+  View, 
+  NativeModules, 
+  Button, 
+  NativeEventEmitter } from 'react-native';
 
-const RNBoseArManager = NativeModules.RNBoseArManager
+
+const RNBoseArManager = NativeModules.RNBoseArManager;
+const ARManagerEvents = new NativeEventEmitter(RNBoseArManager);
 
 export default class App extends Component {
 state = {
@@ -21,6 +28,30 @@ state = {
         console.error(e.message)
       }*/
       this.configure()
+      this.onReceivedRotationListener()
+      this.onReceivedAccelerometerListener()
+  }
+
+  onReceivedRotationListener = () => {
+    ARManagerEvents.addListener("onReceivedRotation", 
+      res => 
+      this.setState({
+        pitch: res["pitch"],
+        roll: res["roll"],
+        yaw: res["yaw"]
+      })
+    )
+  }
+
+  onReceivedAccelerometerListener = () => {
+    ARManagerEvents.addListener("onReceivedAccelerometer", 
+      res => 
+      this.setState({
+        x: res["x"],
+        y: res["y"],
+        z: res["z"],
+      })
+    )
   }
 
   configure = () => {
@@ -42,7 +73,8 @@ state = {
   }
 
   onGetSensorData = () => {
-    RNBoseArManager.getSensorData(result => {
+    
+    /*RNBoseArManager.getSensorData(result => {
        const { pitch, roll, yaw, x, y, z } = this.state; 
       this.setState({
         pitch: result["pitch"],
@@ -52,13 +84,12 @@ state = {
         y: result["y"],
         z: result["z"]
       });
-    })
+    })*/
   }
 
 
   render() {
     const { pitch, roll, yaw, x, y, z } = this.state; 
-
 
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -68,11 +99,12 @@ state = {
             title="SEARCH FOR DEVICE"
             color="#841584"
         />
-        <Button
+        {/*<Button
             onPress={this.onGetSensorData}
             title="GET SENSOR DATA"
             color="#841584"
         />
+      */}
         <View style={{justifyContent: "center", alignItems: "flex-start" }}>
           <Text>Pitch: {pitch}</Text>
           <Text>Roll:  {roll}</Text>
