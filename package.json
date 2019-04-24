@@ -10,7 +10,7 @@
     "react": "16.8.6",
     "react-native": "0.59.6",
     "react-native-bose-ar-manager": "file:../../BoseARManager",
-    "react-navigation": "^3.8.1"
+    "react-navigation": "^3.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
