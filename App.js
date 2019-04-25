@@ -3,8 +3,9 @@ import {
   Text, 
   View, 
   NativeModules, 
-  Button, 
-  NativeEventEmitter } from 'react-native';
+  TouchableOpacity, 
+  NativeEventEmitter,
+  StyleSheet } from 'react-native';
 
 
 const RNBoseArManager = NativeModules.RNBoseArManager;
@@ -13,6 +14,8 @@ const ARManagerEvents = new NativeEventEmitter(RNBoseArManager);
 export default class App extends Component {
 state = {
     isConfigured: false,
+    isComponentMounted: false,
+    receivedSensorData: false,
     pitch: "",
     roll: "",
     yaw: "",
@@ -21,15 +24,23 @@ state = {
     z: ""
   }
 
-	UNSAFE_componentWillMount() {
-      /*try {
-        RNBoseArManager.configure()
-      } catch (e) {
-        console.error(e.message)
-      }*/
-      this.configure()
-      this.onReceivedRotationListener()
-      this.onReceivedAccelerometerListener()
+
+  componentDidMount() {
+    this.configure()
+    this.onReceivedRotationListener()
+    this.onReceivedAccelerometerListener()
+    this.setState({
+        isComponentMounted: true,
+        receivedSensorData: true
+      })
+  }
+
+  configure = () => {
+    RNBoseArManager.configure()
+
+      this.setState({
+        isConfigured: true
+      });
   }
 
   onReceivedRotationListener = () => {
@@ -54,14 +65,6 @@ state = {
     )
   }
 
-  configure = () => {
-    RNBoseArManager.configure()
-
-      this.setState({
-        isConfigured: true
-      });
-  }
-
   onSearchForDevice = () => {
     if (this.state.isConfigured) {
       RNBoseArManager.searchForDevice()
@@ -72,9 +75,10 @@ state = {
       }
   }
 
-  onGetSensorData = () => {
+
+  /*onGetSensorData = () => {
     
-    /*RNBoseArManager.getSensorData(result => {
+    RNBoseArManager.getSensorData(result => {
        const { pitch, roll, yaw, x, y, z } = this.state; 
       this.setState({
         pitch: result["pitch"],
@@ -84,28 +88,36 @@ state = {
         y: result["y"],
         z: result["z"]
       });
-    })*/
-  }
+    })
+  }*/
 
 
   render() {
-    const { pitch, roll, yaw, x, y, z } = this.state; 
+    const { pitch, 
+      roll, 
+      yaw, 
+      x, 
+      y, 
+      z, 
+      isComponentMounted, 
+      receivedSensorData } = this.state; 
 
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+
       
-        <Button
+          <TouchableOpacity
+            disabled={!isComponentMounted}
+            style={styles.button}
             onPress={this.onSearchForDevice}
-            title="SEARCH FOR DEVICE"
-            color="#841584"
-        />
-        {/*<Button
-            onPress={this.onGetSensorData}
-            title="GET SENSOR DATA"
-            color="#841584"
-        />
-      */}
-        <View style={{justifyContent: "center", alignItems: "flex-start" }}>
+          >
+           <Text style={{ color: '#FFFFFF'}}> SEARCH FOR DEVICE </Text>
+          </TouchableOpacity>
+      
+        <View 
+          style={{justifyContent: "center", alignItems: "flex-start"}}
+          disabled={!receivedSensorData}
+        >
           <Text>Pitch: {pitch}</Text>
           <Text>Roll:  {roll}</Text>
           <Text>Yaw:   {yaw}</Text>
@@ -117,3 +129,11 @@ state = {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#121940',
+    padding: 10
+  }
+})

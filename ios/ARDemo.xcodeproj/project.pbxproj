@@ -38,14 +38,12 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		86374C9F226F61BB001CAA1F /* BLECore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374C9E226F61BB001CAA1F /* BLECore.framework */; };
-		86374CA2226F61CA001CAA1F /* BoseWearable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA0226F61CA001CAA1F /* BoseWearable.framework */; };
 		86374CA3226F61CA001CAA1F /* Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA1226F61CA001CAA1F /* Logging.framework */; };
 		86374CA4226F61DD001CAA1F /* BoseWearable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA0226F61CA001CAA1F /* BoseWearable.framework */; };
 		86374CA5226F61DD001CAA1F /* BoseWearable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA0226F61CA001CAA1F /* BoseWearable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		86374CA6226F61DD001CAA1F /* Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA1226F61CA001CAA1F /* Logging.framework */; };
 		86374CA7226F61DD001CAA1F /* Logging.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86374CA1226F61CA001CAA1F /* Logging.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		86374CA8226F61DD001CAA1F /* BLECore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374C9E226F61BB001CAA1F /* BLECore.framework */; };
 		86374CA9226F61DD001CAA1F /* BLECore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86374C9E226F61BB001CAA1F /* BLECore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86C8755222723541006BFA8E /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 86C8752B22723541006BFA8E /* main.jsbundle */; };
 		86ED36892268FC77007A794B /* empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ED36882268FC77007A794B /* empty.swift */; };
 		86ED36CA226952AF007A794B /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		99717AD1FCCE4F1F9D5B1370 /* libRNBoseArManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DA512FEE93404C8ECB506D /* libRNBoseArManager.a */; };
@@ -353,7 +351,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
@@ -383,6 +380,7 @@
 		86374C9E226F61BB001CAA1F /* BLECore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BLECore.framework; sourceTree = "<group>"; };
 		86374CA0226F61CA001CAA1F /* BoseWearable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BoseWearable.framework; sourceTree = "<group>"; };
 		86374CA1226F61CA001CAA1F /* Logging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Logging.framework; sourceTree = "<group>"; };
+		86C8752B22723541006BFA8E /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		86ED36872268FC76007A794B /* ARDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		86ED36882268FC77007A794B /* empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = empty.swift; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
@@ -403,18 +401,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				86374CA4226F61DD001CAA1F /* BoseWearable.framework in Frameworks */,
-				86374CA2226F61CA001CAA1F /* BoseWearable.framework in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
-				86374CA6226F61DD001CAA1F /* Logging.framework in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				86374CA3226F61CA001CAA1F /* Logging.framework in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
-				86374CA8226F61DD001CAA1F /* BLECore.framework in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				86374C9F226F61BB001CAA1F /* BLECore.framework in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
@@ -534,7 +529,7 @@
 		13B07FAE1A68108700A75B9A /* ARDemo */ = {
 			isa = PBXGroup;
 			children = (
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				86C8752B22723541006BFA8E /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -1142,6 +1137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C8755222723541006BFA8E /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
