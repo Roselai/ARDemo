@@ -27,8 +27,10 @@ state = {
 
   componentDidMount() {
     this.configure()
-    this.onReceivedRotationListener()
-    this.onReceivedAccelerometerListener()
+
+    //Uncomment the bottom lines to add listeners
+    //this.onReceivedRotationListener()
+    //this.onReceivedAccelerometerListener()
     this.setState({
         isComponentMounted: true,
         receivedSensorData: true
@@ -114,6 +116,7 @@ state = {
            <Text style={{ color: '#FFFFFF'}}> SEARCH FOR DEVICE </Text>
           </TouchableOpacity>
       
+        
         <View 
           style={{justifyContent: "center", alignItems: "flex-start"}}
           disabled={!receivedSensorData}
