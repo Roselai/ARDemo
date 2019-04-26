@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { 
-  Text, 
-  View, 
-  NativeModules, 
-  TouchableOpacity, 
+import {
+  Text,
+  View,
+  NativeModules,
+  TouchableOpacity,
   NativeEventEmitter,
   StyleSheet } from 'react-native';
 
@@ -24,13 +24,12 @@ state = {
     z: ""
   }
 
-
   componentDidMount() {
     this.configure()
 
     //Uncomment the bottom lines to add listeners
-    //this.onReceivedRotationListener()
-    //this.onReceivedAccelerometerListener()
+    this.onReceivedRotationListener()
+    this.onReceivedAccelerometerListener()
     this.setState({
         isComponentMounted: true,
         receivedSensorData: true
@@ -46,8 +45,8 @@ state = {
   }
 
   onReceivedRotationListener = () => {
-    ARManagerEvents.addListener("onReceivedRotation", 
-      res => 
+    ARManagerEvents.addListener("onReceivedRotation",
+      res =>
       this.setState({
         pitch: res["pitch"],
         roll: res["roll"],
@@ -57,8 +56,8 @@ state = {
   }
 
   onReceivedAccelerometerListener = () => {
-    ARManagerEvents.addListener("onReceivedAccelerometer", 
-      res => 
+    ARManagerEvents.addListener("onReceivedAccelerometer",
+      res =>
       this.setState({
         x: res["x"],
         y: res["y"],
@@ -77,11 +76,10 @@ state = {
       }
   }
 
+  onGetSensorData = () => {
 
-  /*onGetSensorData = () => {
-    
     RNBoseArManager.getSensorData(result => {
-       const { pitch, roll, yaw, x, y, z } = this.state; 
+       const { pitch, roll, yaw, x, y, z } = this.state;
       this.setState({
         pitch: result["pitch"],
         roll: result["roll"],
@@ -91,23 +89,21 @@ state = {
         z: result["z"]
       });
     })
-  }*/
-
+  }
 
   render() {
-    const { pitch, 
-      roll, 
-      yaw, 
-      x, 
-      y, 
-      z, 
-      isComponentMounted, 
-      receivedSensorData } = this.state; 
+    const { pitch,
+      roll,
+      yaw,
+      x,
+      y,
+      z,
+      isComponentMounted,
+      receivedSensorData } = this.state;
 
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
 
-      
           <TouchableOpacity
             disabled={!isComponentMounted}
             style={styles.button}
@@ -115,9 +111,15 @@ state = {
           >
            <Text style={{ color: '#FFFFFF'}}> SEARCH FOR DEVICE </Text>
           </TouchableOpacity>
-      
-        
-        <View 
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={this.onGetSensorData}
+          >
+           <Text style={{ color: '#FFFFFF'}}> Play Audio </Text>
+          </TouchableOpacity>
+
+        <View
           style={{justifyContent: "center", alignItems: "flex-start"}}
           disabled={!receivedSensorData}
         >
