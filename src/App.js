@@ -4,8 +4,7 @@ import {
   View,
   NativeModules,
   NativeEventEmitter,
-  StyleSheet,
-  TouchableOpacity } from 'react-native';
+  StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 
 const RNBoseArManager = NativeModules.RNBoseArManager;
@@ -107,26 +106,10 @@ state = {
       <Button
         title="SEARCH FOR DEVICE"
         type="solid"
-        raised="true"
+        raised=true
         disabled={!isComponentMounted}
         onPress={this.onSearchForDevice}
       />
-
-          {/*<TouchableOpacity
-            disabled={!isComponentMounted}
-            style={styles.button}
-            onPress={this.onSearchForDevice}
-          >
-           <Text style={{ color: '#FFFFFF'}}> SEARCH FOR DEVICE </Text>
-          </TouchableOpacity>
-        */}
-
-          <TouchableOpacity
-            style={styles.button}
-            onPress={this.onGetSensorData}
-          >
-           <Text style={{ color: '#FFFFFF'}}> Play Audio </Text>
-          </TouchableOpacity>
 
         <View
           style={{justifyContent: "center", alignItems: "flex-start"}}
