@@ -4,7 +4,7 @@ import {
   View,
   NativeModules,
   NativeEventEmitter,
-  StyleSheet } from 'react-native';
+  StyleSheet} from 'react-native';
 import { Button } from 'react-native-elements';
 
 const RNBoseArManager = NativeModules.RNBoseArManager;
@@ -34,6 +34,12 @@ state = {
         receivedSensorData: true
       })
   }
+
+  componentWillUnmount() {
+  	RNBoseArManager.stopListeningForSensors()
+  	//window.removeEventListener('onReceivedRotation', this.onReceivedRotationListener, false);
+  	//window.removeEventListener('onReceivedAccelerometer', this.onReceivedAccelerometer, false);
+	}
 
   configure = () => {
     RNBoseArManager.configure()
@@ -90,6 +96,22 @@ state = {
     })
   }
 
+  renderSectionList = () => {
+    return(
+      <View style={styles.container}>
+      <SectionList
+       sections={[
+         { title: 'Rotation', data: ['Pitch', 'Roll', 'Yaw'] },
+         { title: 'Accelerometer', data: ['x', 'y', 'z'] },
+       ]}
+       renderSectionHeader={ ({section}) => <Text style={styles.SectionHeader}> { section.title } </Text> }
+       renderItem={ ({item}) => <Text style={styles.SectionListItemS}> { item } </Text> }
+       keyExtractor={ (item, index) => index }
+     />
+      </View>
+      )
+  }
+
   render() {
     const { pitch,
       roll,
@@ -101,16 +123,22 @@ state = {
       receivedSensorData } = this.state;
 
     return (
+     
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
 
       <Button
         title="SEARCH FOR DEVICE"
         type="solid"
-        raised=true
+        raised={true}
         disabled={!isComponentMounted}
         onPress={this.onSearchForDevice}
       />
 
+      {this.renderSectionList()}
+
+      
+
+      {/*
         <View
           style={{justifyContent: "center", alignItems: "flex-start"}}
           disabled={!receivedSensorData}
@@ -122,15 +150,30 @@ state = {
           <Text>Y:     {y}</Text>
           <Text>Z:     {z}</Text>
         </View>
+      
       </View>
+      */}
     );
   }
 }
 
 const styles = StyleSheet.create({
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#121940',
-    padding: 10
+  container: {
+      flex: 1,
+      justifyContent: "center",
+      backgroundColor: "#e5e5e5"
+    },
+    SectionHeader:{
+      backgroundColor : '#64B5F6',
+      fontSize : 20,
+      padding: 5,
+      color: '#fff',
+      fontWeight: 'bold'
+   },
+    SectionListItemS:{
+      fontSize : 16,
+      padding: 6,
+      color: '#000',
+      backgroundColor : '#F5F5F5'
   }
 })
