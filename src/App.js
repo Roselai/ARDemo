@@ -27,7 +27,8 @@ export default class App extends Component {
     yaw: "",
     x: "",
     y: "",
-    z: ""
+    z: "",
+    buttonPressed: false
   };
 
   componentDidMount() {
@@ -85,46 +86,63 @@ export default class App extends Component {
     } else {
       this.configure();
     }
-    this.pressed = true;
+    //this.pressed = true;
+    this.setState({
+      buttonPressed: true
+    });
   };
 
   renderSectionList = () => {
-    const { pitch, roll, yaw, x, y, z, receivedSensorData } = this.state;
+    const {
+      pitch,
+      roll,
+      yaw,
+      x,
+      y,
+      z,
+      receivedSensorData,
+      buttonPressed
+    } = this.state;
 
-    if (!receivedSensorData) {
+    if (!receivedSensorData && buttonPressed) {
       return <Spinner size="large" />;
+    } else {
+      return (
+        <SectionList
+          sections={[
+            {
+              title: "Rotation",
+              data: [`Pitch : ${pitch}`, `Roll : ${roll}`, `Yaw : ${yaw}`]
+            },
+            {
+              title: "Accelerometer",
+              data: [`X : ${x}`, `Y : ${y}`, `Z : ${z}`]
+            }
+          ]}
+          renderSectionHeader={({ section }) => (
+            <Text style={styles.SectionHeader}> {section.title} </Text>
+          )}
+          renderItem={({ item }) => (
+            <Text style={styles.SectionListItemS}> {item} </Text>
+          )}
+          keyExtractor={(item, index) => index}
+        />
+      );
     }
-
-    return (
-      <SectionList
-        sections={[
-          {
-            title: "Rotation",
-            data: [`Pitch : ${pitch}`, `Roll : ${roll}`, `Yaw : ${yaw}`]
-          },
-          {
-            title: "Accelerometer",
-            data: [`X : ${x}`, `Y : ${y}`, `Z : ${z}`]
-          }
-        ]}
-        renderSectionHeader={({ section }) => (
-          <Text style={styles.SectionHeader}> {section.title} </Text>
-        )}
-        renderItem={({ item }) => (
-          <Text style={styles.SectionListItemS}> {item} </Text>
-        )}
-        keyExtractor={(item, index) => index}
-      />
-    );
   };
 
   renderButton = () => {
     var buttonText = "SEARCH FOR DEVICE";
-    if (this.pressed) {
+
+    if (this.state.buttonPressed) {
       buttonText = "SENSOR DATA";
     }
     return (
-      <Button onPress={this.onSearchForDevice} disabled={this.pressed}>
+      <Button
+        onPress={this.onSearchForDevice}
+        disabled={this.state.buttonPressed}
+        style={styles.buttonStyle}
+      >
         {buttonText}
       </Button>
     );
@@ -159,5 +177,14 @@ const styles = StyleSheet.create({
     padding: 6,
     color: "#000",
     backgroundColor: "#F5F5F5"
+  },
+  buttonStyle: {
+    flex: 1,
+    backgroundColor: "#fff",
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "#000000",
+    marginLeft: 10,
+    marginRight: 10
   }
 });

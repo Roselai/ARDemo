@@ -1,36 +1,24 @@
-import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import React from "react";
+import { Text, TouchableOpacity } from "react-native";
 
-const Button = ({ onPress, children, disabled }) => {
-	const { buttonStyle, textStyle } = styles
-	return (
-		<TouchableOpacity onPress={onPress} style={buttonStyle} disabled={disabled}>
-			<Text style={textStyle}>
-				{children}
-			</Text>
-		</TouchableOpacity>
-	);
+const Button = ({ onPress, children, disabled, style }) => {
+  const { textStyle } = styles;
+  return (
+    <TouchableOpacity onPress={onPress} style={style} disabled={disabled}>
+      <Text style={textStyle}>{children}</Text>
+    </TouchableOpacity>
+  );
 };
 
 const styles = {
-	textStyle: {
-		alignSelf: 'center',
-		color: '#000000',
-		fontSize: 16,
-		fontWeight: '600',
-		paddingTop: 10,
-		paddingBottom: 10
-	},
-	buttonStyle: {
-		flex: 1,
-		alignSelf: 'stretch',
-		backgroundColor: '#fff',
-		borderRadius: 5,
-		borderWidth: 1,
-		borderColor: '#000000',
-		marginLeft: 10,
-		marginRight: 10
-	}
+  textStyle: {
+    alignSelf: "center",
+    color: "#000000",
+    fontSize: 16,
+    fontWeight: "600",
+    paddingTop: 10,
+    paddingBottom: 10
+  }
 };
 
 export { Button };
