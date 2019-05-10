@@ -5,7 +5,8 @@ import {
   NativeModules,
   NativeEventEmitter,
   StyleSheet,
-  SectionList
+  SectionList,
+  Switch
 } from "react-native";
 import { Card, CardSection, Button, Spinner } from "./components";
 
@@ -28,7 +29,8 @@ export default class App extends Component {
     x: "",
     y: "",
     z: "",
-    buttonPressed: false
+    buttonPressed: false,
+    switchValue: false
   };
 
   componentDidMount() {
@@ -90,6 +92,13 @@ export default class App extends Component {
     this.setState({
       buttonPressed: true
     });
+  };
+
+  toggleSwitch = value => {
+    //onValueChange of the switch this function will be called
+    this.setState({ switchValue: value });
+    //state changes according to switch
+    //which will result in re-render the text
   };
 
   renderSectionList = () => {
@@ -154,6 +163,23 @@ export default class App extends Component {
         <CardSection>{this.renderButton()}</CardSection>
 
         <CardSection>{this.renderSectionList()}</CardSection>
+
+        <CardSection>
+          <Text style={styles.autoSelectText}>Autoselect last-used device</Text>
+          <Switch
+            //style={{ marginTop: 30 }}
+            onValueChange={this.toggleSwitch}
+            value={this.state.switchValue}
+          />
+        </CardSection>
+        <CardSection>
+          <Text>
+            This option only shows the search UI if the most-recently connected
+            device is not found within 5 seconds. If the most-recently connected
+            device is found before 5 seconds has elapsed, it is automatically
+            selected.
+          </Text>
+        </CardSection>
       </Card>
     );
   }
@@ -186,5 +212,10 @@ const styles = StyleSheet.create({
     borderColor: "#000000",
     marginLeft: 10,
     marginRight: 10
+  },
+  autoSelectText: {
+    fontSize: 16,
+    padding: 6,
+    color: "#000"
   }
 });
